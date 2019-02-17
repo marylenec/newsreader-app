@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ArticleShow from '../containers/ArticleShow'
 import { Link } from 'react-router-dom'
 
   class ArticleCard extends Component {
@@ -10,14 +9,14 @@ import { Link } from 'react-router-dom'
 
       render() {
 
-      const {article} = this.props;
+      const { article } = this.props;
 
       return (
         <React.Fragment >
             <article className='ArticleCard col-sm-6 col-md-4'>
               <div className='media-container'>
                 <Link to={`/articles/${article.title}`} >
-                  <img src={article.urlToImage} onClick={(e) => this.props.addArticleVisited(article)}/>
+                  <img src={article.urlToImage} onClick={(e) => this.props.addArticleVisited(article)} alt={article.description}/>
                 </Link>
               </div>
               <Link className='link' to={`/articles/${article.title}`}>

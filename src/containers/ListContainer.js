@@ -11,7 +11,8 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
 
       state = {
         data: [],
-        visited: []
+        visited: [],
+        fullRead: []
       }
 
       componentDidMount = () => {
@@ -42,11 +43,19 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
           this.setState(state => {
             state.visited.push(article)
             return state
-          }, () => console.log(this.state))
+          })
         }
       }
 
-// {this.state.data ? this.display() : <p>Loading</p>}
+      addArticleFullRead = (article) => {
+        // console.log(article)
+        if (!this.state.fullRead.includes(article)) {
+          this.setState(state => {
+            state.fullRead.push(article)
+            return state
+          }, () => console.log(this.state))
+        }
+      }
 
       render() {
       return (
@@ -63,13 +72,13 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
           <Route path='/articles/:title' render={(props) => {
             //using the react router match property find the article from this.state.data that matches the article title in the URL path and then pass the object to the ArticleShow component
             let articleId = props.match.params.title
-            return <ArticleShow article={this.state.data.find(article => article.title === articleId)}/>
+            return <ArticleShow article={this.state.data.find(article => article.title === articleId)} addArticleFullRead={this.addArticleFullRead} />
           }} />
 
         </Switch>
         <Route exact path='/visited' render={() => {
           return (
-        <ArticlesVisited visited={this.state.visited} />
+        <ArticlesVisited visited={this.state.visited} fullRead={this.state.fullRead} />
         )
         }} />
         </div>
