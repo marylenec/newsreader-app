@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Route, Switch, Link} from 'react-router-dom'
 import ArticlesList from '../components/ArticlesList'
 import ArticlesVisited from '../components/ArticlesVisited'
 import ArticleShow from './ArticleShow'
@@ -11,8 +11,10 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
 
       state = {
         data: [],
+        total: 0,
         visited: [],
-        fullRead: []
+        fullRead: [],
+        position: 6
       }
 
       componentDidMount = () => {
@@ -23,19 +25,18 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
         fetch(`https://newsapi.org/v2/everything?sources=engadget&apiKey=${myKey}`)
         .then( res => res.json())
         .then( data => {
-          this.setState(
-            {data: data.articles}
+          this.setState({
+            data: data.articles,
+            total: data.articles.length
+            }
           )
         })
       }
 
-      display = () => {
-        // console.log(this.state.data)
-        let arr = this.state.data.map(article => {
-          return <ArticlesList articles={article} key={article.title} />
+      updatePosition = () => {
+        this.setState({
+          position: this.state.position + 6
         })
-        // console.log(arr)
-        return arr
       }
 
       addArticleVisited = (article) => {
@@ -63,10 +64,21 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
           <NavBar />
           <div className='ListContainer row'>
           <Switch>
+          <Route exact path='/' render={() => {
+            return (
+              <div>
+                <Link to='/articles'><button className='btn default-btn mr-3' >Articles</button></Link>
+                <Link to='/visited'><button className='btn default-btn mr-3' >Visited</button></Link>
+              </div>
+            )
+          }}/>
           <Route exact path='/articles' render={() => {
             return (this.state.data.length > 0
                   ?
-          <ArticlesList articles={this.state.data} addArticleVisited={this.addArticleVisited} />: <p>Loading...</p>
+          <ArticlesList articles={this.state.data.slice(0, this.state.position)}
+          articlesTotal = {this.state.total} addArticleVisited={this.addArticleVisited}
+          updatePosition={this.updatePosition}
+          />: <p>Loading...</p>
           )
           }} />
           <Route path='/articles/:title' render={(props) => {

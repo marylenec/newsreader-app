@@ -19,11 +19,11 @@ code {
 p {
   margin-top: 10px;
 }
-a small, button.source-btn {
+a small, .default-btn {
   text-decoration: none !important;
   color: #666;
 }
-a:hover, a:hover small, .link:hover, button.source-btn:hover {
+a:hover, a:hover small, .link:hover, .default-btn:hover {
   text-decoration: none !important;
   color: #000000;
 }
@@ -50,17 +50,14 @@ img {
   margin-right: auto;
 }
 .ArticleCard {
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
 }
 .back-btn {
   float:right;
 }
-.source-btn {
-  border: 1px solid #666;
-}
-.back-btn, .source-btn:hover {
+.back-btn, .default-btn {
   border: 1px solid #000;
 }
 .clearfix {
@@ -76,4 +73,12 @@ img {
 {
   display: block;
   padding: .5rem 1rem;
+}
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.center-block {
+  margin:0 auto
 }

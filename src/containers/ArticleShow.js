@@ -9,31 +9,42 @@ const ArticleShow = (props) =>{
   const teaser = (str) => {
     return str.slice(0,250)
   }
-  // const url = (str) => {
-  //   //find letters in string before .com
-  //
-  //   //replace with empty before www.
-  //
-  //   return str.slice()
-  // }
+
+  const webLink = (str) => {
+    //replace with empty before www.
+    const replace = ['https://www.', 'http://www.', 'https://']
+
+		let result = ''
+    for (let char of replace) {
+      if (str.includes(char)) {
+        result = str.replace(char,'')
+      }
+    }
+    const end = result.split("").indexOf('/')
+
+    result = result.slice(0, end)
+
+    return result
+  }
+
   return ( article ?
 
     <div className="ArticleShow row justify-content-center">
       <div className="col-md-8">
-        <a href={article.url} target="_blank" rel="noopener noreferrer">
+        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <img src={article.urlToImage} alt={article.title}/>
         </a>
-        <a href={article.url} target="_blank" rel="noopener noreferrer">
+        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <h3>{article.title}</h3>
         </a>
-        <a href={article.url} target="_blank" rel="noopener noreferrer">
+        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <small>{article.source.name} - {article.author}</small>
         </a>
-        <a href={article.url} target="_blank" rel="noopener noreferrer">
+        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <p>{article.content ? teaser(article.content) : null}...</p>
         </a>
         <div className='d-flex justify-content-center'>
-        <button className='btn source-btn' onClick={(e) => props.addArticleFullRead(article)} >View on {article.source.name}</button>
+        <a href={article.url} className='btn default-btn' onClick={(e) => props.addArticleFullRead(article)} target="_blank" rel="noopener noreferrer" >View on {webLink(article.url)}</a>
         </div>
         <div className='clearfix'></div>
         <Link to='/articles'><button className='btn back-btn' >Back To Articles</button></Link>

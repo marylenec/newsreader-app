@@ -5,18 +5,16 @@ import ArticleCard from './ArticleCard'
 
       displayVisited = () => {
         console.log(this.props.visited)
-        let arr = this.props.visited.map(article => {
+        return this.props.visited.map(article => {
           return <ArticleCard article={article} key={article.title} />
         })
-        return arr
       }
 
       displayFullRead = () => {
         console.log(this.props.fullRead)
-        let arr = this.props.fullRead.map(article => {
+        return this.props.fullRead.map(article => {
           return <ArticleCard article={article} key={article.title} />
         })
-        return arr
       }
 
       render() {
@@ -27,14 +25,16 @@ import ArticleCard from './ArticleCard'
       <React.Fragment>
         { this.props.visited.length > 0 ?
           <div>
-            <h3>Articles Visited:</h3>
+          <h3>Articles Visited:</h3>
+          <div className='flex-container'>
             {this.displayVisited()}
-          </div> : null }
+          </div></div> : null }
         { this.props.fullRead.length > 0 ?
           <div>
-            <h3>Full Articles Read:</h3>
+          <h3>Full Articles Read:</h3>
+          <div className='flex-container'>
             {this.displayFullRead()}
-          </div> : null }
+          </div></div> : null }
       </React.Fragment>
       )
     }

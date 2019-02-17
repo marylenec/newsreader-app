@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 
       const { article } = this.props;
 
-      return (
+      return ( article ?
         <React.Fragment >
             <article className='ArticleCard col-sm-6 col-md-4'>
               <div className='media-container'>
@@ -20,14 +20,16 @@ import { Link } from 'react-router-dom'
                 </Link>
               </div>
               <Link className='link' to={`/articles/${article.title}`}>
-                <h3>{article.title}</h3>
+                <h3 onClick={(e) => this.props.addArticleVisited(article)} >{article.title}</h3>
               </Link>
-              <Link className='link' to={`/articles/  ${article.title}`} >   <small>{article.source.name} - {article.author}</small>
+              <Link className='link' to={`/articles/  ${article.title}`} >   <small onClick={(e) => this.props.addArticleVisited(article)}>{article.source.name} - {article.author}</small>
               </Link>
-              <Link className='link' to={`/articles/${article.title}`} ><p>{article.content ? this.teaser(article.content) : null}...</p></Link>
+              <Link className='link' to={`/articles/${article.title}`} ><p onClick={(e) => this.props.addArticleVisited(article)}>{article.content ? this.teaser(article.content) : null}...</p></Link>
               <hr/>
             </article>
         </React.Fragment>
+        :
+        null
       )
     }
   }
