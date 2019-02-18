@@ -13,8 +13,7 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
         data: [],
         total: 0,
         visited: [],
-        fullRead: [],
-        position: 6
+        fullRead: []
       }
 
       componentDidMount = () => {
@@ -31,30 +30,31 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
             }
           )
         })
-      }
-
-      updatePosition = () => {
-        this.setState({
-          position: this.state.position + 6
-        })
+        .catch(err => {
+    err.text().then(errorMessage => {
+      'Something went wrong'
+    })})
       }
 
       addArticleVisited = (article) => {
+        console.log(this)
+        const previous = window.history.length
+
+        const timeStamp = new Date().toUTCString()
         if (!this.state.visited.includes(article)) {
-          this.setState(state => {
-            state.visited.push(article)
-            return state
-          })
-        }
+          this.setState({
+            visited: [...this.state.visited, {article, timeStamp: timeStamp, previous: previous}]
+          },() => console.log(this.state))
       }
+    }
 
       addArticleFullRead = (article) => {
         // console.log(article)
+        const timeStamp = new Date().toUTCString()
         if (!this.state.fullRead.includes(article)) {
-          this.setState(state => {
-            state.fullRead.push(article)
-            return state
-          }, () => console.log(this.state))
+          this.setState({
+            fullRead: [...this.state.fullRead, {article, timeStamp: timeStamp}]
+          },() => console.log(this.state))
         }
       }
 
@@ -75,9 +75,9 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
           <Route exact path='/articles' render={() => {
             return (this.state.data.length > 0
                   ?
-          <ArticlesList articles={this.state.data.slice(0, this.state.position)}
+          <ArticlesList
+          articles={this.state.data}
           articlesTotal = {this.state.total} addArticleVisited={this.addArticleVisited}
-          updatePosition={this.updatePosition}
           />: <p>Loading...</p>
           )
           }} />

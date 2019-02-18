@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom'
 const ArticleShow = (props) =>{
 
   const { article } = props
-  console.log(props)
+  // console.log(props)
 
   const teaser = (str) => {
-    return str.slice(0,250)
+    return str.slice(0,250) + "..."
   }
 
   const webLink = (str) => {
@@ -32,7 +32,7 @@ const ArticleShow = (props) =>{
     <div className="ArticleShow row justify-content-center">
       <div className="col-md-8">
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <img src={article.urlToImage} alt={article.title}/>
+          <img className="show" src={article.urlToImage} alt={article.title}/>
         </a>
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <h3>{article.title}</h3>
@@ -41,7 +41,7 @@ const ArticleShow = (props) =>{
           <small>{article.source.name} - {article.author}</small>
         </a>
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <p>{article.content ? teaser(article.content) : null}...</p>
+          <p>{article.content ? teaser(article.content) : 'no content available'}</p>
         </a>
         <div className='d-flex justify-content-center'>
         <a href={article.url} className='btn default-btn' onClick={(e) => props.addArticleFullRead(article)} target="_blank" rel="noopener noreferrer" >View on {webLink(article.url)}</a>

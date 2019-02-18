@@ -3,6 +3,16 @@ import ArticleCard from './ArticleCard'
 
   class ArticlesList extends Component {
 
+      state = {
+        position: 6
+      }
+
+      updatePosition = () => {
+        this.setState({
+          position: this.state.position + 6
+        })
+      }
+
       displayArticles = () => {
         let arr = this.props.articles.map(article => {
           return (
@@ -11,19 +21,20 @@ import ArticleCard from './ArticleCard'
               article={article}  addArticleVisited={this.props.addArticleVisited} />
           )
         })
-        return arr
+        return arr.slice(0, this.state.position)
       }
 
       displayLoadBtn = () => {
-        while (this.props.articles.length < this.props.articlesTotal) {
+        // console.log(this.state.position)
+        while (this.state.position < this.props.articlesTotal) {
         return (
-          <button className='btn default-btn' onClick={() => this.props.updatePosition()}>Load More</button>
+          <button className='btn default-btn' onClick={() => this.updatePosition()}>Load More</button>
         )
         }
       }
 
       render() {
-        console.log(this.props)
+        // console.log(this.props)
 
       return (
       <React.Fragment>

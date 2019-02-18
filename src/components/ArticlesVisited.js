@@ -4,16 +4,18 @@ import ArticleCard from './ArticleCard'
   class ArticlesVisited extends Component {
 
       displayVisited = () => {
-        console.log(this.props.visited)
+        // console.log(this.props.visited)
         return this.props.visited.map(article => {
-          return <ArticleCard article={article} key={article.title} />
+          return (
+            <ArticleCard article={article.article} key={article.article.title} timeStamp={article.timeStamp}/>
+          )
         })
       }
 
       displayFullRead = () => {
         console.log(this.props.fullRead)
         return this.props.fullRead.map(article => {
-          return <ArticleCard article={article} key={article.title} />
+          return <ArticleCard article={article.article} key={article.article.title} timeStamp={article.timeStamp} />
         })
       }
 
