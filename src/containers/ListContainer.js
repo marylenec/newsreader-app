@@ -27,26 +27,25 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
           this.setState({
             data: data.articles,
             total: data.articles.length
-            }
-          )
+            })
         })
         .catch(err => {
-    err.text().then(errorMessage => {
-      'Something went wrong'
-    })})
+          err.text().then(errorMessage => {
+            'Something went wrong'
+          })
+        })
       }
 
       addArticleVisited = (article) => {
-        console.log(this)
-        const previous = window.history.length
+        // const previous = window.history.length
 
         const timeStamp = new Date().toUTCString()
         if (!this.state.visited.includes(article)) {
           this.setState({
-            visited: [...this.state.visited, {article, timeStamp: timeStamp, previous: previous}]
+            visited: [...this.state.visited, {article, timeStamp: timeStamp}]
           },() => console.log(this.state))
+        }
       }
-    }
 
       addArticleFullRead = (article) => {
         // console.log(article)
@@ -73,27 +72,25 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
             )
           }}/>
           <Route exact path='/articles' render={() => {
-            return (this.state.data.length > 0
-                  ?
-          <ArticlesList
-          articles={this.state.data}
-          articlesTotal = {this.state.total} addArticleVisited={this.addArticleVisited}
-          />: <p>Loading...</p>
-          )
-          }} />
+            return ( this.state.data.length > 0 ?
+              <ArticlesList
+              articles={this.state.data}
+              articlesTotal = {this.state.total} addArticleVisited={this.addArticleVisited}
+              />: <p>Loading...</p>
+            )}} />
           <Route path='/articles/:title' render={(props) => {
             //using the react router match property find the article from this.state.data that matches the article title in the URL path and then pass the object to the ArticleShow component
             let articleId = props.match.params.title
             return <ArticleShow article={this.state.data.find(article => article.title === articleId)} addArticleFullRead={this.addArticleFullRead} />
           }} />
-
-        </Switch>
-        <Route exact path='/visited' render={() => {
-          return (
-        <ArticlesVisited visited={this.state.visited} fullRead={this.state.fullRead} />
-        )
-        }} />
-        </div>
+          </Switch>
+          <Route exact path='/visited' render={() => {
+            return (
+          <ArticlesVisited
+            visited={this.state.visited} fullRead={this.state.fullRead}
+            />
+          )}} />
+          </div>
         </div>
       )
     }

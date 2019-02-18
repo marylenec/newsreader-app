@@ -29,7 +29,7 @@ import ArticleCard from './ArticleCard'
         while (this.state.position < this.props.articlesTotal) {
         return (
           <button className='btn default-btn' onClick={() => this.updatePosition()}>Load More</button>
-        )
+          )
         }
       }
 

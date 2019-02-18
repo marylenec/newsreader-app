@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const ArticleShow = (props) =>{
+const ArticleShow = (props) => {
 
   const { article } = props
   // console.log(props)
@@ -21,21 +21,19 @@ const ArticleShow = (props) =>{
       }
     }
     const end = result.split("").indexOf('/')
-
     result = result.slice(0, end)
 
     return result
   }
 
   return ( article ?
-
     <div className="ArticleShow row justify-content-center">
       <div className="col-md-8">
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <img className="show" src={article.urlToImage} alt={article.title}/>
         </a>
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <h3>{article.title}</h3>
+          <h1>{article.title}</h1>
         </a>
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <small>{article.source.name} - {article.author}</small>
