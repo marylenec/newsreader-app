@@ -52,7 +52,7 @@ img.show{
   height: auto;
 }
 @media only screen and (max-width: 488px){
-  .ArticleCard {
+  .ArticleCard, .ArticleShow {
     max-width: 380px;
     margin: 0 auto;
   }
@@ -79,6 +79,12 @@ img.show{
 }
 .word-wrap {
   word-wrap: break-word;
+}
+.default-link {
+  font-weight: bold;
+}
+.default-link:hover {
+  text-decoration: underline !important;
 }
 .back-btn {
   float:right;

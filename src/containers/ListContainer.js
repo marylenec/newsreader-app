@@ -63,9 +63,11 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
           <Switch>
           <Route exact path='/' render={() => {
             return (
-              <section>
-                <Link to='/articles'><button className='btn default-btn mr-3' >Articles</button></Link>
-                <Link to='/visited'><button className='btn default-btn mr-3' >Visited</button></Link>
+              <section className='col-md-12'>
+                <h1>Welcome to NewsReader!</h1>
+                <p className='row center-block'>
+                Read our great&nbsp;<Link className='default-link' to='/articles'>articles</Link>&nbsp;or check out&nbsp;<Link className='default-link'  to='/visited'>visited</Link>&nbsp;articles!
+                </p>
               </section>
             )
           }}/>

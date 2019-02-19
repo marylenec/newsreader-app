@@ -28,7 +28,7 @@ const ArticleShow = (props) => {
 
   return ( article ?
     <section className="ArticleShow row justify-content-center">
-      <article className="col-md-8">
+      <article className="col-md-8 col-sm-12">
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <img className="show" src={article.urlToImage} alt={article.title}/>
         </a>
