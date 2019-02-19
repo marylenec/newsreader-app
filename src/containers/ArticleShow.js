@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { addArticleFullRead } from '../actions/articleActions'
 
 const ArticleShow = (props) => {
 
@@ -53,4 +55,4 @@ const ArticleShow = (props) => {
   )
 }
 
-export default ArticleShow
+  export default connect(null, { addArticleFullRead })(ArticleShow);

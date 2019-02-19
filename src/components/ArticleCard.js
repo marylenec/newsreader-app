@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { addArticleVisited } from '../actions/articleActions'
 
   const ArticleCard = (props) => {
 
@@ -34,4 +36,6 @@ import { Link } from 'react-router-dom'
       )
   }
 
-export default ArticleCard;
+
+
+  export default connect(null, { addArticleVisited })(ArticleCard);

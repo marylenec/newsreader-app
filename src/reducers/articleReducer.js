@@ -15,14 +15,14 @@ export default function manageArticles(state = {
     case VISITED:
     return {
       ...state,
-      // visited: [...state.visited, {action.payload, timeStamp: timeStamp}]
       visited: [...state.visited, action.payload]
+      // visited: action.payload
       };
     case FULL_READ:
     return {
       ...state,
-      // visited: [...state.visited, {action.payload, timeStamp: timeStamp}]
       fullRead: [...state.fullRead, action.payload]
+      // fullRead: action.payload
       };
     default:
       return state;

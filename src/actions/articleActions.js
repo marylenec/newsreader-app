@@ -12,3 +12,19 @@ export const fetchNews = () => dispatch => {
       })
     })
 }
+
+export const addArticleVisited = (article) => dispatch => {
+  const timeStamp = new Date().toUTCString()
+    dispatch({
+      type: VISITED,
+      payload: {article, timeStamp:timeStamp}
+    })
+}
+
+export const addArticleFullRead = (article) => dispatch => {
+  const timeStamp = new Date().toUTCString()
+    dispatch({
+      type: FULL_READ,
+      payload: {article, timeStamp:timeStamp}
+    })
+}
