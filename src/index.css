@@ -43,6 +43,20 @@ h1 {
   display: flex;
   flex-direction: column;
 }
+.ArticleCard {
+  display: flex;
+  flex-direction: column;
+}
+.media-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 img.fit {
   margin-bottom: 20px;
   object-fit: cover;
@@ -63,15 +77,6 @@ img.show{
 .fit {
   justify-content:center;
   align-items: center;
-  width: 100%;
-}
-.ArticleCard {
-  display: flex;
-  flex-direction: column;
-}
-.media-container {
-  display: flex;
-  flex-direction: row;
   width: 100%;
 }
 .wrapper {
@@ -100,11 +105,13 @@ img.show{
   display: block;
   padding: .5rem 1rem;
 }
-.flex-container {
+.ArticlesVisited {
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+
 .center-block {
   margin:0 auto
 }

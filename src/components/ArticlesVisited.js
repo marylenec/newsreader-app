@@ -40,9 +40,9 @@ import ArticleCard from './ArticleCard'
         { fullRead.length > 0 ?
           <section>
           <h1>Full Articles Read:</h1>
-          <div className='flex-container'>
+          <article className='flex-container'>
             {displayFullRead()}
-          </div></section> : null }
+          </article></section> : null }
       </React.Fragment>
       )
   }
