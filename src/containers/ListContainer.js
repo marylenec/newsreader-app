@@ -11,7 +11,6 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
 
       state = {
         data: [],
-        total: 0,
         visited: [],
         fullRead: []
       }
@@ -25,8 +24,7 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
         .then( res => res.json())
         .then( data => {
           this.setState({
-            data: data.articles,
-            total: data.articles.length
+            data: data.articles
             })
         })
         .catch(err => {
@@ -59,23 +57,23 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
 
       render() {
       return (
-        <div>
+        <React.Fragment>
           <NavBar />
-          <div className='ListContainer row'>
+          <main className='ListContainer row'>
           <Switch>
           <Route exact path='/' render={() => {
             return (
-              <div>
+              <section>
                 <Link to='/articles'><button className='btn default-btn mr-3' >Articles</button></Link>
                 <Link to='/visited'><button className='btn default-btn mr-3' >Visited</button></Link>
-              </div>
+              </section>
             )
           }}/>
           <Route exact path='/articles' render={() => {
             return ( this.state.data.length > 0 ?
               <ArticlesList
               articles={this.state.data}
-              articlesTotal = {this.state.total} addArticleVisited={this.addArticleVisited}
+              addArticleVisited={this.addArticleVisited}
               />: <p>Loading...</p>
             )}} />
           <Route path='/articles/:title' render={(props) => {
@@ -90,8 +88,8 @@ const myKey = `${process.env.REACT_APP_API_KEY}`
             visited={this.state.visited} fullRead={this.state.fullRead}
             />
           )}} />
-          </div>
-        </div>
+          </main>
+        </React.Fragment>
       )
     }
   }

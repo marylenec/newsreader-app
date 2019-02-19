@@ -30,17 +30,17 @@ import ArticleCard from './ArticleCard'
       return (
       <React.Fragment>
         { visited.length > 0 ?
-          <div>
+          <section>
           <h1>Articles Visited:</h1>
           <div className='flex-container'>
             {displayVisited()}
-          </div></div> : null }
+          </div></section> : null }
         { fullRead.length > 0 ?
-          <div>
+          <section>
           <h1>Full Articles Read:</h1>
           <div className='flex-container'>
             {displayFullRead()}
-          </div></div> : null }
+          </div></section> : null }
       </React.Fragment>
       )
   }

@@ -12,11 +12,11 @@ import { Link } from 'react-router-dom'
       return ( article ?
         <React.Fragment >
             <article className='ArticleCard col-md-4 col-sm-6 col-xs-12'>
-              <div className='media-container'>
+              <figure className='media-container'>
                 <Link to={`/articles/${article.title}`} >
                   <img className= 'fit' src={article.urlToImage} onClick={(e) => props.addArticleVisited(article)} alt={article.description}/>
                 </Link>
-              </div>
+              </figure>
               <Link className='link' to={`/articles/${article.title}`}>
                 <h1 onClick={(e) => props.addArticleVisited(article)} >{article.title}</h1>
               </Link>

@@ -27,8 +27,8 @@ const ArticleShow = (props) => {
   }
 
   return ( article ?
-    <div className="ArticleShow row justify-content-center">
-      <div className="col-md-8">
+    <section className="ArticleShow row justify-content-center">
+      <article className="col-md-8">
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <img className="show" src={article.urlToImage} alt={article.title}/>
         </a>
@@ -41,13 +41,13 @@ const ArticleShow = (props) => {
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <p>{article.content ? teaser(article.content) : 'no content available'}</p>
         </a>
-        <div className='d-flex justify-content-center'>
+        <section className='d-flex justify-content-center'>
         <a href={article.url} className='btn default-btn' onClick={(e) => props.addArticleFullRead(article)} target="_blank" rel="noopener noreferrer" >View on {webLink(article.url)}</a>
-        </div>
+        </section>
         <div className='clearfix'></div>
         <Link to='/articles'><button className='btn back-btn' >Back To Articles</button></Link>
-      </div>
-    </div>
+      </article>
+    </section>
     :
     null
   )

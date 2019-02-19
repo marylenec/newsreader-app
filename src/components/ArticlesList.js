@@ -26,7 +26,7 @@ import ArticleCard from './ArticleCard'
 
       displayLoadBtn = () => {
         // console.log(this.state.position)
-        while (this.state.position < this.props.articlesTotal) {
+        while (this.state.position < this.props.articles.length) {
         return (
           <button className='btn default-btn' onClick={() => this.updatePosition()}>Load More</button>
           )
@@ -38,12 +38,12 @@ import ArticleCard from './ArticleCard'
 
       return (
       <React.Fragment>
-        <div className='row'>
+        <section className='row'>
         {this.displayArticles()}
-        </div>
-        <div className='row center-block'>
+        </section>
+        <section className='row center-block'>
         {this.displayLoadBtn()}
-        </div>
+        </section>
       </React.Fragment>
       )
     }
