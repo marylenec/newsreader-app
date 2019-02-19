@@ -1,3 +1,4 @@
+import { FETCH_NEWS, VISITED, FULL_READ } from '../actions/types'
 
 export default function manageArticles(state = {
   data: [],
@@ -6,7 +7,7 @@ export default function manageArticles(state = {
 }, action) {
 
   switch(action.type) {
-    case FETCH_DATA:
+    case FETCH_NEWS:
     return {
       ...state,
       data: action.payload
