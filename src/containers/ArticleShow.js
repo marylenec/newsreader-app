@@ -29,6 +29,7 @@ const ArticleShow = (props) => {
   }
 
   return ( article ?
+
     <React.Fragment>
       <section className="row justify-content-center">
       <article className="ArticleCard col-md-8 col-sm-12">
