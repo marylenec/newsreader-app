@@ -69,9 +69,16 @@ img.show{
   height: auto;
 }
 @media only screen and (max-width: 488px){
-  .ArticleCard {
+  .ArticleCard, .ArticleShow {
     max-width: 380px;
     margin: 0 auto;
+  }
+  img.show {
+    margin-bottom: 20px;
+    object-fit: cover;
+    flex: 1;
+    overflow: hidden;
+    height: 250px;
   }
 }
 .fit {
@@ -84,6 +91,12 @@ img.show{
 }
 .word-wrap {
   word-wrap: break-word;
+}
+.default-link {
+  font-weight: bold;
+}
+.default-link:hover {
+  text-decoration: underline !important;
 }
 .back-btn {
   float:right;
@@ -110,12 +123,10 @@ img.show{
   flex-direction: row;
   flex-wrap: wrap;
 }
-
-
 .center-block {
   margin:0 auto
 }
-.btn:focus {
+.btn:focus, button.navbar-toggler:focus {
   outline: 0;
   box-shadow: none;
 }

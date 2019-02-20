@@ -36,7 +36,7 @@ import ArticleCard from './ArticleCard'
           <h1>Articles Visited:</h1>
           <article className='flex-container'>
             {displayVisited()}
-          </article></section> : 'No Articles Visited' }
+          </article></section> : <section><h1>No Articles Visited</h1></section> }
         { fullRead.length > 0 ?
           <section>
           <h1>Full Articles Read:</h1>
