@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { addArticleVisited } from '../actions/articleActions'
 
   const ArticleCard = (props) => {
 
@@ -26,7 +28,6 @@ import { Link } from 'react-router-dom'
               <Link className='link' to={`/articles/${article.title}`} ><p className='word-wrap' onClick={(e) => props.addArticleVisited(article)}>{article.content ? teaser(article.content) :'no content available'}</p></Link>
               </div>
               {props.timeStamp ? <small>Viewed on: {timeStamp}</small> : null}
-              <hr/>
             </article>
         </React.Fragment>
         :
@@ -34,4 +35,6 @@ import { Link } from 'react-router-dom'
       )
   }
 
-export default ArticleCard;
+
+
+  export default connect(null, { addArticleVisited })(ArticleCard);

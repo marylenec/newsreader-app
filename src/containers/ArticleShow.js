@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { connect } from 'react-redux';
+import { addArticleFullRead } from '../actions/articleActions'
 
 const ArticleShow = (props) => {
 
@@ -27,10 +29,14 @@ const ArticleShow = (props) => {
   }
 
   return ( article ?
-    <section className="ArticleShow row justify-content-center">
-      <article className="col-md-8 col-sm-12">
+
+    <React.Fragment>
+      <section className="row justify-content-center">
+      <article className="ArticleCard col-md-8 col-sm-12">
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
+          <figure>
           <img className="show" src={article.urlToImage} alt={article.title}/>
+          </figure>
         </a>
         <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
           <h1>{article.title}</h1>
@@ -44,13 +50,12 @@ const ArticleShow = (props) => {
         <section className='d-flex justify-content-center'>
         <a href={article.url} className='btn default-btn' onClick={(e) => props.addArticleFullRead(article)} target="_blank" rel="noopener noreferrer" >View on {webLink(article.url)}</a>
         </section>
-        <div className='clearfix'></div>
-        <Link to='/articles'><button className='btn back-btn' >Back To Articles</button></Link>
       </article>
-    </section>
+      </section>
+    </React.Fragment>
     :
     null
   )
 }
 
-export default ArticleShow
+  export default connect(null, { addArticleFullRead })(ArticleShow);

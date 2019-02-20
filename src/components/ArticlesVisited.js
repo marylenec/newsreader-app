@@ -11,7 +11,8 @@ import ArticleCard from './ArticleCard'
           return (
             <ArticleCard
               article={article.article}
-              key={article.article.title} timeStamp={article.timeStamp}/>
+              key={article.timeStamp}
+              timeStamp={article.timeStamp}/>
           )
         })
       }
@@ -22,7 +23,8 @@ import ArticleCard from './ArticleCard'
           return (
             <ArticleCard
               article={article.article}
-              key={article.article.title} timeStamp={article.timeStamp} />
+              key={article.article.title}
+              timeStamp={article.timeStamp} />
           )
         })
       }
@@ -32,15 +34,17 @@ import ArticleCard from './ArticleCard'
         { visited.length > 0 ?
           <section>
           <h1>Articles Visited:</h1>
-          <div className='flex-container'>
+          <article className='flex-container'>
             {displayVisited()}
-          </div></section> : null }
+          </article></section> : <section><h1>No Articles Visited</h1></section> }
         { fullRead.length > 0 ?
-          <section>
-          <h1>Full Articles Read:</h1>
-          <div className='flex-container'>
-            {displayFullRead()}
-          </div></section> : null }
+          <section className='margin-top-30'>
+          <hr/>
+            <h1>Full Articles Read:</h1>
+            <article className='flex-container'>
+              {displayFullRead()}
+            </article>
+          </section> : null }
       </React.Fragment>
       )
   }

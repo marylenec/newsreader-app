@@ -11,6 +11,9 @@ small, .btn, .navbar a {
 #navbarNav a:hover {
   border-bottom: 1px solid #000;
 }
+.navbar {
+  background-color: #FFF;
+}
 .link, a {
   text-decoration: none !important;
   color: #000000;
@@ -32,13 +35,27 @@ h1 {
 }
 .ListContainer {
   position: absolute;
-  margin: 0px 40px;
+  margin: 0px 40px 20px;
   padding-top: 100px;
 }
 .ArticlesList {
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
+}
+.ArticleCard {
+  display: flex;
+  flex-direction: column;
+}
+.media-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 img.fit {
   margin-bottom: 20px;
@@ -56,22 +73,17 @@ img.show{
     max-width: 380px;
     margin: 0 auto;
   }
-  .ListContainer {
-    margin: 0px;
+  img.show {
+    margin-bottom: 20px;
+    object-fit: cover;
+    flex: 1;
+    overflow: hidden;
+    height: 250px;
   }
 }
 .fit {
   justify-content:center;
   align-items: center;
-  width: 100%;
-}
-.ArticleCard {
-  display: flex;
-  flex-direction: column;
-}
-.media-container {
-  display: flex;
-  flex-direction: row;
   width: 100%;
 }
 .wrapper {
@@ -106,11 +118,18 @@ img.show{
   display: block;
   padding: .5rem 1rem;
 }
-.flex-container {
+.ArticlesVisited {
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .center-block {
   margin:0 auto
+}
+.btn:focus, button.navbar-toggler:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.margin-top-30 {
+  margin-top: 30px;
 }
