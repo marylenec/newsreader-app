@@ -38,11 +38,13 @@ import ArticleCard from './ArticleCard'
             {displayVisited()}
           </article></section> : <section><h1>No Articles Visited</h1></section> }
         { fullRead.length > 0 ?
-          <section>
-          <h1>Full Articles Read:</h1>
-          <article className='flex-container'>
-            {displayFullRead()}
-          </article></section> : null }
+          <section className='margin-top-30'>
+          <hr/>
+            <h1>Full Articles Read:</h1>
+            <article className='flex-container'>
+              {displayFullRead()}
+            </article>
+          </section> : null }
       </React.Fragment>
       )
   }
