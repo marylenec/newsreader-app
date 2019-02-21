@@ -23,7 +23,7 @@ import ArticleCard from './ArticleCard'
           return (
             <ArticleCard
               article={article.article}
-              key={article.article.title}
+              key={article.timeStamp}
               timeStamp={article.timeStamp} />
           )
         })

@@ -27,4 +27,5 @@ export const addArticleFullRead = (article) => dispatch => {
       type: FULL_READ,
       payload: {article, timeStamp:timeStamp}
     })
+  window.open(article.url)
 }

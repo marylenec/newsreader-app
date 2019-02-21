@@ -41,7 +41,7 @@ import ArticleCard from './ArticleCard'
         <section className='row'>
         {this.displayArticles()}
         </section>
-        <section className='row center-block'>
+        <section className='center-block'>
         {this.displayLoadBtn()}
         </section>
       </React.Fragment>
