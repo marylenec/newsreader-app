@@ -24,9 +24,7 @@ import { addArticleVisited } from '../actions/articleActions'
               </Link>
               <Link className='link' to={`/articles/  ${article.title}`} >   <small onClick={(e) => props.addArticleVisited(article)}>{article.source.name} - {article.author}</small>
               </Link>
-              <div className='wrapper'>
               <Link className='link' to={`/articles/${article.title}`} ><p className='word-wrap' onClick={(e) => props.addArticleVisited(article)}>{article.content ? teaser(article.content) :'no content available'}</p></Link>
-              </div>
               {props.timeStamp ? <small>Viewed on: {timeStamp}</small> : null}
             </article>
         </React.Fragment>
