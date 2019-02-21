@@ -1,6 +1,6 @@
 import { FETCH_NEWS, VISITED, FULL_READ } from './types';
 
-const myKey = 'd84da9782868494a97d02c16f764e19d'
+const myKey = `${process.env.REACT_APP_API_KEY}`
 
 export const fetchNews = () => dispatch => {
   fetch(`https://newsapi.org/v2/everything?sources=engadget&apiKey=${myKey}`)
