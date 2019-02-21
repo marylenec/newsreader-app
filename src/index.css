@@ -133,3 +133,6 @@ img.show{
 .margin-top-30 {
   margin-top: 30px;
 }
+.pointer {
+  cursor: pointer;
+}

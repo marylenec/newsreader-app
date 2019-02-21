@@ -33,22 +33,14 @@ const ArticleShow = (props) => {
     <React.Fragment>
       <section className="row justify-content-center">
       <article className="ArticleCard col-md-8 col-sm-12">
-        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <figure>
+        <figure className='pointer' onClick={(e) => props.addArticleFullRead(article)}>
           <img className="show" src={article.urlToImage} alt={article.title}/>
-          </figure>
-        </a>
-        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <h1>{article.title}</h1>
-        </a>
-        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <small>{article.source.name} - {article.author}</small>
-        </a>
-        <a href={article.url} target="_blank" rel="noopener noreferrer" onClick={(e) => props.addArticleFullRead(article)}>
-          <p>{article.content ? teaser(article.content) : 'no content available'}</p>
-        </a>
+        </figure>
+        <h1 className='pointer' onClick={(e) => props.addArticleFullRead(article)}>{article.title}</h1>
+        <small className='pointer' onClick={(e) => props.addArticleFullRead(article)}>{article.source.name} - {article.author}</small>
+        <p className='pointer' onClick={(e) => props.addArticleFullRead(article)}>{article.content ? teaser(article.content) : 'no content available'}</p>
         <section className='d-flex justify-content-center'>
-        <a href={article.url} className='btn default-btn' onClick={(e) => props.addArticleFullRead(article)} target="_blank" rel="noopener noreferrer" >View on {webLink(article.url)}</a>
+        <button className='btn default-btn' onClick={(e) => props.addArticleFullRead(article)} >View on {webLink(article.url)}</button>
         </section>
       </article>
       </section>
